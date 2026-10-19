@@ -6,6 +6,7 @@ import {
   Terminal,
   Cpu,
   Sparkles,
+  ExternalLink,
 } from "lucide-react";
 import type { ProjectItem } from "../data/projects";
 
@@ -79,6 +80,56 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </span>
             ))}
           </div>
+
+          {/* Live App Store Actions */}
+          {(project.playStoreUrl || project.playStoreLinks) && (
+            <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-[#101010] to-[#141414] border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 shadow-xl">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <ExternalLink className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider mb-0.5 flex items-center gap-1.5">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                    </span>
+                    <span>Live Production Release</span>
+                  </div>
+                  <div className="text-sm sm:text-base font-semibold text-white">
+                    Available on Google Play Store
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {project.playStoreLinks ? (
+                  project.playStoreLinks.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-emerald-500 text-black hover:bg-emerald-400 transition-all hover:scale-105 active:scale-95 shadow-md shadow-emerald-500/20"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>{link.label}</span>
+                    </a>
+                  ))
+                ) : project.playStoreUrl ? (
+                  <a
+                    href={project.playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-500 text-black hover:bg-emerald-400 transition-all hover:scale-105 active:scale-95 shadow-md shadow-emerald-500/20"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>View on Google Play</span>
+                  </a>
+                ) : null}
+              </div>
+            </div>
+          )}
 
           {/* Description */}
           <div className="space-y-4 mb-8">

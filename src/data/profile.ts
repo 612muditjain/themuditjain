@@ -36,7 +36,7 @@ export const profileData: Profile = {
   linkedin: "https://linkedin.com/in/muditjain612",
   github: "https://github.com/612muditjain",
   positioning:
-    "Flutter Developer with 2+ years of experience building and shipping 12+ production-grade mobile applications across CRM, ERP, EdTech, travel/booking, donation, media and e-commerce domains. Skilled in state management (BLoC, Riverpod, GetX, Provider), REST API integration, third-party SDKs (Agora, Razorpay, Firebase, OneSignal) and native Android development in Kotlin.",
+    "Flutter Developer experienced in designing, developing, and deploying 12+ production-grade mobile applications across CRM, ERP, EdTech, travel and booking, donation, media, and e-commerce domains. Proficient in Flutter, Dart, state management (BLoC, Riverpod, GetX, and Provider), REST API integration, and third-party SDKs including Firebase, Agora, Razorpay, and OneSignal. Hands-on experience in native Android development using Kotlin, including background call recording implementation for Android 10–14. Skilled in end-to-end application development, performance optimization, debugging, and release management across Google Play Console and Apple App Store Connect. MCA graduate specializing in Cloud Computing and Full Stack Development.",
   heroBadge: "FLUTTER DEVELOPER • ANDROID • iOS",
   heroHeading: "Building Mobile Experiences That People Love to Use.",
   heroDescription:
@@ -48,13 +48,13 @@ export const profileData: Profile = {
       sublabel: "Shipped Across Domains",
     },
     {
-      value: "2+",
-      label: "Years Experience",
-      sublabel: "Professional Mobile Engineering",
+      value: "Full-Cycle",
+      label: "Mobile Engineering",
+      sublabel: "Architecture to Store Deployment",
     },
     {
-      value: "Android + iOS",
-      label: "Store Releases",
+      value: "3 Apps",
+      label: "Dual-Store Releases",
       sublabel: "Google Play & App Store Connect",
     },
     {

@@ -72,11 +72,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
             ? "bg-[#050505]/85 backdrop-blur-md border-b border-white/10 py-3.5 shadow-2xl shadow-black/80"
             : "bg-transparent py-5 border-b border-transparent"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Left Brand: Mudit Jain / Monogram */}
@@ -114,11 +113,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
-                  activeSection === link.id
+                className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${activeSection === link.id
                     ? "text-white"
                     : "text-white/65 hover:text-white hover:bg-white/5"
-                }`}
+                  }`}
               >
                 {activeSection === link.id && (
                   <motion.div
@@ -203,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
                         {profileData.name}
                       </span>
                       <span className="text-[10px] font-mono text-emerald-400">
-                        Flutter Dev • 2+ Yrs Exp
+                        Flutter Developer • Android & iOS
                       </span>
                     </div>
                   </div>
@@ -227,11 +225,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
                         key={link.name}
                         href={link.href}
                         onClick={(e) => scrollToSection(e, link.href)}
-                        className={`px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center justify-between ${
-                          isActive
+                        className={`px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center justify-between ${isActive
                             ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 font-semibold"
                             : "text-white/70 hover:text-white hover:bg-white/5"
-                        }`}
+                          }`}
                       >
                         <span>{link.name}</span>
                         {isActive && (
@@ -279,8 +276,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
                   </div>
 
                   <div className="flex items-center justify-between text-white/50">
-                    <span>Experience:</span>
-                    <span className="text-emerald-400 font-medium">2+ Years</span>
+                    <span>Platforms:</span>
+                    <span className="text-emerald-400 font-medium">Android & iOS</span>
                   </div>
                 </div>
               </div>

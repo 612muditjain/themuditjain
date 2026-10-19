@@ -6,6 +6,7 @@ import {
   Cpu,
   ShieldCheck,
   Sparkles,
+  ExternalLink,
 } from "lucide-react";
 import type { ProjectItem } from "../data/projects";
 
@@ -234,14 +235,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         <div className="flex items-center justify-between gap-2 pt-0.5">
-          <span className="text-[11px] font-mono text-white/40 truncate min-w-0 pr-2">
-            {project.platform}
-          </span>
+          {project.playStoreUrl ? (
+            <a
+              href={project.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 hover:bg-emerald-500/20 hover:border-emerald-500/40 transition-colors shrink-0 shadow-sm"
+              title="Open Live App on Google Play Store"
+            >
+              <ExternalLink className="w-3 h-3" />
+              <span>Google Play</span>
+            </a>
+          ) : (
+            <span className="text-[11px] font-mono text-white/40 truncate min-w-0 pr-2">
+              {project.platform}
+            </span>
+          )}
+
           <button
             onClick={() => onSelect(project)}
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-white group-hover:text-emerald-400 transition-colors shrink-0 px-2 py-1 rounded-lg hover:bg-white/5"
           >
-            <span>View Project</span>
+            <span>View Details</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>

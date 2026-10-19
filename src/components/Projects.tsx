@@ -9,8 +9,8 @@ export const Projects: React.FC = () => {
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
 
   const filterTabs = [
-    { id: "all", label: "All Projects (10)" },
-    { id: "published", label: "Published on Stores (5)" },
+    { id: "all", label: "All Projects" },
+    { id: "published", label: "Live Store Apps" },
     { id: "native", label: "Native Kotlin / SDK" },
     { id: "enterprise", label: "Enterprise CRM & ERP" },
     { id: "realtime", label: "Real-Time RTC & Travel" },
@@ -19,9 +19,9 @@ export const Projects: React.FC = () => {
   const filteredProjects = projectsData.filter((p) => {
     if (selectedFilter === "all") return true;
     if (selectedFilter === "native") return p.id === "calltrack-pro" || p.technologies.includes("Kotlin");
-    if (selectedFilter === "published") return p.status.includes("Published") || p.id === "donslip" || p.id === "time-sey" || p.id === "go4explore" || p.id === "holidaywaale" || p.id === "inventoryverse";
+    if (selectedFilter === "published") return Boolean(p.playStoreUrl || p.playStoreLinks || p.status.includes("Published"));
     if (selectedFilter === "enterprise") return p.id === "multiverse" || p.id === "shiksha-suite" || p.id === "inventoryverse";
-    if (selectedFilter === "realtime") return p.id === "buddly" || p.id === "go4explore" || p.id === "5wh-newsroom" || p.id === "holidaywaale";
+    if (selectedFilter === "realtime") return p.id === "buddly" || p.id === "go4explore" || p.id === "5wh-newsroom" || p.id === "holidaywaale" || p.id === "yumantra";
     return true;
   });
 

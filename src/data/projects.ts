@@ -1,3 +1,8 @@
+export interface PlayStoreLink {
+  label: string;
+  url: string;
+}
+
 export interface ProjectItem {
   id: string;
   number: string;
@@ -12,6 +17,8 @@ export interface ProjectItem {
   keyHighlights: string[];
   impact?: string;
   architectureNotes?: string;
+  playStoreUrl?: string;
+  playStoreLinks?: PlayStoreLink[];
   codeSnippet?: {
     language: string;
     filename: string;
@@ -88,6 +95,7 @@ export const projectsData: ProjectItem[] = [
     status: "Published: Android & iOS",
     badge: "Published: Android & iOS",
     platform: "Google Play Store & Apple App Store",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.donslip.android&hl=en_IN",
     technologies: ["Flutter", "REST APIs", "App Store Connect", "Provisioning Profiles"],
     shortDescription:
       "Developed and published a donation platform on Google Play Store and Apple App Store, enabling users to contribute to causes through a simple, secure flow.",
@@ -101,7 +109,7 @@ export const projectsData: ProjectItem[] = [
     ],
     impact: "Dual-store published live application with seamless contribution workflow",
     previewInsights: [
-      { label: "Deployment Scope", value: "Google Play & App Store" },
+      { label: "Deployment Scope", value: "Google Play & App Store (Dual Store)" },
       { label: "iOS Architecture", value: "Provisioning & Store Connect" },
       { label: "Checkout Flow", value: "Simple & Secure Giving Flow" },
     ],
@@ -110,38 +118,78 @@ export const projectsData: ProjectItem[] = [
   {
     id: "time-sey",
     number: "03",
-    title: "Time-Sey",
-    category: "Matrimonial & Lead Management Platform",
+    title: "Time-Sey (Secret Secretary)",
+    category: "Matrimonial & Lead CRM Platform",
     status: "Published: Android & iOS",
-    badge: "Published: Android & iOS",
+    badge: "Published: Android & iOS (Dual Apps)",
     platform: "Google Play Store & Apple App Store",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.secretsecretaryuser.app&hl=en_IN",
+    playStoreLinks: [
+      {
+        label: "User App (Google Play)",
+        url: "https://play.google.com/store/apps/details?id=com.secretsecretaryuser.app&hl=en_IN",
+      },
+      {
+        label: "Partner App (Google Play)",
+        url: "https://play.google.com/store/apps/details?id=com.secretseceratary.app&hl=en_IN",
+      },
+    ],
     technologies: ["Flutter", "Node.js", "GetX", "Razorpay", "OneSignal"],
     shortDescription:
-      "Developed and published a multi-profile platform on both stores, managing the complete release lifecycle with matchmaking and B2B lead pipelines.",
+      "Published dual applications on both Google Play and Apple App Store (User App & Partner App) with matchmaking algorithms and business lead pipelines.",
     fullDescription:
-      "Built matrimonial matchmaking and business lead management modules. Integrated OneSignal push notifications and Razorpay payments. Owned the end-to-end release lifecycle including provisioning profiles on Google Play and Apple App Store.",
+      "Built matrimonial matchmaking and business lead management modules across a multi-app ecosystem (User App and Partner/Secretary App). Integrated OneSignal push notifications and Razorpay payments. Owned the end-to-end release lifecycle including certificates and provisioning profiles on both stores.",
     keyHighlights: [
-      "Developed and published multi-profile platform on both Google Play and App Store",
+      "Dual-app architecture published on Google Play and Apple App Store (User & Partner apps)",
       "Built matrimonial matchmaking algorithms and business lead management modules",
       "Integrated OneSignal push notifications and Razorpay payment checkout flow",
-      "Managed end-to-end release lifecycle including certificates and provisioning profiles",
+      "Managed end-to-end release lifecycle including provisioning profiles and certificates",
     ],
-    impact: "Active dual-store published production app serving matchmaking and lead needs",
+    impact: "Dual-store published live production suite serving matchmaking and partner lead workflows",
     previewInsights: [
-      { label: "Dual Ecosystem", value: "Matrimonial + Lead CRM" },
-      { label: "Push Service", value: "OneSignal Real-Time Alerts" },
+      { label: "Dual Ecosystem", value: "User App + Partner App" },
+      { label: "Store Status", value: "Live on Android & iOS" },
       { label: "Payment Gateway", value: "Razorpay Checkout & Webhooks" },
     ],
     featured: true,
   },
   {
-    id: "go4explore",
+    id: "yumantra",
     number: "04",
+    title: "YuMantra",
+    category: "Astrology, Kundli & Horoscope Platform",
+    status: "Published: Google Play Store",
+    badge: "Published: Google Play Store",
+    platform: "Google Play Store (Android)",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.yumantra.android&hl=en_IN",
+    technologies: ["Flutter", "Dart", "REST APIs", "Node.js", "Payment Gateway"],
+    shortDescription:
+      "Published an astrology and horoscope mobile app featuring personalized reports, Kundli generation, and birth chart evaluations.",
+    fullDescription:
+      "Engineered and published YuMantra on the Google Play Store to provide personalized astrology-based guidance, daily horoscopes, Kundli generation, and Vedic birth chart breakdowns. Built intuitive UI components for complex astrological charts, compatibility reports, and seamless consultation booking flows.",
+    keyHighlights: [
+      "Published on Google Play Store with responsive, astrology-themed UI architecture",
+      "Personalized horoscope engine, Kundli generation, and planetary alignment evaluations",
+      "In-depth birth charts and compatibility reports based on user birth details",
+      "Optimized rendering performance for complex zodiac visuals and chart layouts",
+    ],
+    impact: "Live Google Play Store astrology app delivering personalized spiritual insights",
+    previewInsights: [
+      { label: "Store Status", value: "Published on Google Play" },
+      { label: "Astrology Engine", value: "Kundli & Vedic Charts" },
+      { label: "Architecture", value: "Modular Flutter Client" },
+    ],
+    featured: true,
+  },
+  {
+    id: "go4explore",
+    number: "05",
     title: "Go4Explore",
     category: "Tour & Travel Booking Application",
     status: "Published: Google Play Store",
     badge: "Published: Google Play Store",
     platform: "Google Play Store (Android)",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.go4explore.android&hl=en_IN",
     technologies: ["Flutter", "Node.js", "Supabase", "Riverpod", "Payment Gateway"],
     shortDescription:
       "Developed and published a travel app with destination discovery, package/tour listings, and an end-to-end trip booking system.",
@@ -163,18 +211,20 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: "multiverse",
-    number: "05",
+    number: "06",
     title: "Multiverse",
-    category: "CRM Mobile Application",
-    status: "Enterprise Production",
-    badge: "+40% Sales Efficiency",
-    platform: "Android & iOS",
+    category: "CRM & Workforce Mobile App",
+    status: "Published: Google Play Store",
+    badge: "Published: Google Play Store • +40% Sales Efficiency",
+    platform: "Google Play Store (Android)",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialmilestone.multiverse&hl=en_IN",
     technologies: ["Flutter", "Kotlin", "Node.js", "MongoDB", "Hive", "AWS", "fl_chart"],
     shortDescription:
-      "Built an all-in-one CRM, HRM and LMS app with lead management, location-based attendance and analytics dashboards using fl_chart, improving sales team efficiency by 40%.",
+      "Published an all-in-one CRM, HRM and LMS app with lead management, location-based attendance and analytics dashboards using fl_chart, improving sales team efficiency by 40%.",
     fullDescription:
-      "Consolidated CRM leads, HRM attendance, and corporate LMS training into a unified mobile client. Used Hive for offline caching of leads and attendance data in low-connectivity areas, with location-based attendance tracking and analytical dashboards powered by fl_chart.",
+      "Consolidated CRM leads, HRM attendance, and corporate LMS training into a unified mobile client on Google Play Store. Used Hive for offline caching of leads and attendance data in low-connectivity areas, with location-based attendance tracking and analytical dashboards powered by fl_chart.",
     keyHighlights: [
+      "Published on Google Play Store for enterprise mobility and field operations",
       "All-in-one CRM, HRM, and LMS mobility suite improving sales team efficiency by 40%",
       "Geofenced location-based attendance logging and real-time validation",
       "Dynamic analytical dashboards built with fl_chart and pipeline insights",
@@ -183,29 +233,40 @@ export const projectsData: ProjectItem[] = [
     impact: "40% improvement in sales team efficiency and real-time field operations",
     previewInsights: [
       { label: "Operational Suite", value: "CRM + HRM + LMS Unified" },
-      { label: "Analytics Charts", value: "fl_chart Performance Graphs" },
+      { label: "Store Status", value: "Published on Google Play" },
       { label: "Field Caching", value: "Hive Offline Persistence" },
     ],
     featured: true,
   },
   {
     id: "shiksha-suite",
-    number: "06",
+    number: "07",
     title: "Shiksha One & Shiksha Connect",
     category: "School ERP Suite",
-    status: "Enterprise Production",
-    badge: "1,000+ DAU • -60% Admin Overhead",
-    platform: "Android & iOS",
+    status: "Published: Google Play Store",
+    badge: "Published: Google Play Store • 1,000+ DAU",
+    platform: "Google Play Store (Android)",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialmilestone.shikshaone&hl=en_IN",
+    playStoreLinks: [
+      {
+        label: "Shiksha One (School ERP)",
+        url: "https://play.google.com/store/apps/details?id=com.imperialmilestone.shikshaone&hl=en_IN",
+      },
+      {
+        label: "Shiksha Connect (Parent & Student)",
+        url: "https://play.google.com/store/apps/details?id=com.imperialmilestone.shikshaconnect&hl=en_IN",
+      },
+    ],
     technologies: ["Flutter", "Node.js", "MongoDB", "JWT", "PDF Generation"],
     shortDescription:
-      "Built a School ERP with portals for students, parents, admins, staff and teachers, serving 1,000+ daily active users and reducing admin overhead by 60%.",
+      "Published School ERP suite on Google Play Store with portals for students, parents, admins, staff and teachers, serving 1,000+ daily active users and reducing admin overhead by 60%.",
     fullDescription:
-      "Engineered comprehensive multi-portal architecture serving students, parents, school admins, staff, and teachers. Implemented role-based JWT authentication, daily digital attendance tracking, and automated student fee management with digital PDF receipts.",
+      "Engineered comprehensive multi-portal architecture published on Google Play (Shiksha One and Shiksha Connect). Implemented role-based JWT authentication, daily digital attendance tracking, and automated student fee management with digital PDF receipts.",
     keyHighlights: [
+      "Published on Google Play Store across two specialized companion apps",
       "Served 1,000+ daily active users with 5 dedicated user role portals",
       "Reduced administrative processing time and operational overhead by 60%",
       "Automated fee collection pipeline with instant client/server PDF receipts",
-      "Secure JWT token-based authentication with role-based route guards",
     ],
     impact: "1,000+ daily active users and 60% reduction in administrative overhead",
     previewInsights: [
@@ -216,33 +277,6 @@ export const projectsData: ProjectItem[] = [
     featured: false,
   },
   {
-    id: "buddly",
-    number: "07",
-    title: "Buddly",
-    category: "Real-Time Consultation & Calling Platform",
-    status: "Production Ready",
-    badge: "Agora RTC Video/Voice",
-    platform: "Android & iOS",
-    technologies: ["Flutter", "Node.js", "Agora SDK", "Razorpay", "Provider"],
-    shortDescription:
-      "Developed one-on-one expert sessions with Agora SDK-powered audio/video calling and a dual-role architecture (User and Expert panels).",
-    fullDescription:
-      "Connected users with verified mentors and experts through low-latency audio/video calling powered by Agora SDK. Built an in-app wallet with Razorpay for session bookings, balance top-ups, and automated expert payouts, plus calendar session scheduling.",
-    keyHighlights: [
-      "Real-time 1-on-1 audio/video calling sessions powered by Agora RTC SDK",
-      "Dual-role architecture with tailored panels for Users and Verified Experts",
-      "In-app wallet system with automated Razorpay top-ups and expert payouts",
-      "Session scheduling, booking calendar sync, and call duration billing",
-    ],
-    impact: "Low-latency RTC audio/video communication with in-app wallet monetization",
-    previewInsights: [
-      { label: "Agora Engine", value: "Low-Latency RTC Channel" },
-      { label: "Wallet & Billing", value: "In-App Razorpay Wallet" },
-      { label: "Role Architecture", value: "Dual User & Expert Panels" },
-    ],
-    featured: true,
-  },
-  {
     id: "inventoryverse",
     number: "08",
     title: "InventoryVerse",
@@ -250,6 +284,7 @@ export const projectsData: ProjectItem[] = [
     status: "Published: Google Play Store",
     badge: "Published: Google Play Store",
     platform: "Google Play Store (Android)",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialmilestone.inventory_app&hl=en_IN",
     technologies: ["Flutter", "REST APIs", "Modular Architecture", "Google Play"],
     shortDescription:
       "Built and published an ERP-based mobile app for managing inventory and business operations with a clean, modular architecture.",
@@ -277,6 +312,7 @@ export const projectsData: ProjectItem[] = [
     status: "Published: Google Play Store",
     badge: "Published: Google Play Store",
     platform: "Google Play Store (Android)",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialmilestone.holidaywaale&hl=en_IN",
     technologies: ["Flutter", "Node.js", "MongoDB", "Google Play"],
     shortDescription:
       "Published a production app with destination search and filtering, booking forms, a review and rating system, and dark/light theme support.",
@@ -297,8 +333,35 @@ export const projectsData: ProjectItem[] = [
     featured: false,
   },
   {
-    id: "5wh-newsroom",
+    id: "buddly",
     number: "10",
+    title: "Buddly",
+    category: "Real-Time Consultation & Calling Platform",
+    status: "Production Ready",
+    badge: "Agora RTC Video/Voice",
+    platform: "Android & iOS",
+    technologies: ["Flutter", "Node.js", "Agora SDK", "Razorpay", "Provider"],
+    shortDescription:
+      "Developed one-on-one expert sessions with Agora SDK-powered audio/video calling and a dual-role architecture (User and Expert panels).",
+    fullDescription:
+      "Connected users with verified mentors and experts through low-latency audio/video calling powered by Agora SDK. Built an in-app wallet with Razorpay for session bookings, balance top-ups, and automated expert payouts, plus calendar session scheduling.",
+    keyHighlights: [
+      "Real-time 1-on-1 audio/video calling sessions powered by Agora RTC SDK",
+      "Dual-role architecture with tailored panels for Users and Verified Experts",
+      "In-app wallet system with automated Razorpay top-ups and expert payouts",
+      "Session scheduling, booking calendar sync, and call duration billing",
+    ],
+    impact: "Low-latency RTC audio/video communication with in-app wallet monetization",
+    previewInsights: [
+      { label: "Agora Engine", value: "Low-Latency RTC Channel" },
+      { label: "Wallet & Billing", value: "In-App Razorpay Wallet" },
+      { label: "Role Architecture", value: "Dual User & Expert Panels" },
+    ],
+    featured: false,
+  },
+  {
+    id: "5wh-newsroom",
+    number: "11",
     title: "5WH Virtual Newsroom",
     category: "Media & News Trading Platform",
     status: "Production Ready",

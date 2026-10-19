@@ -37,9 +37,9 @@ export const Achievements: React.FC = () => {
       border: "border-purple-500/20",
     },
     {
-      value: "Android + iOS",
+      value: "3 Apps",
       label: "Dual-Store Releases",
-      subtext: "Published on Google Play & App Store (Time-Sey, Donslip)",
+      subtext: "Published on Google Play & App Store (Secret Secretary User, Partner App, Donslip)",
       icon: ShieldCheck,
       color: "text-emerald-400",
       border: "border-emerald-500/20",
@@ -49,7 +49,7 @@ export const Achievements: React.FC = () => {
   const keyAchievementsList = [
     {
       title: "Dual Store Publishing Ownership",
-      detail: "Published apps on Google Play Store and Apple App Store (Time-Sey, Donslip), owning the full release lifecycle on both platforms including provisioning profiles and certificates.",
+      detail: "Published 3 applications on both Google Play Store and Apple App Store (Secret Secretary User App, Secret Secretary Partner App, and Donslip), owning the full release lifecycle on both platforms including provisioning profiles and certificates.",
       badge: "Google Play & App Store",
       icon: ShieldCheck,
     },
@@ -79,7 +79,7 @@ export const Achievements: React.FC = () => {
       <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col items-start text-left mb-6 sm:mb-8 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2.5">
